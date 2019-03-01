@@ -23,7 +23,7 @@ public class ReceitaController {
 	
 
 	@GetMapping(Constants.GET_RECEITA_BY_ID)
-	public ReceitaDto getUserById(@PathVariable Integer id) {
+	public ReceitaDto getReceitaById(@PathVariable Integer id) {
 		return receitaService.getReceitaById(id);
 	}	
 		
@@ -33,7 +33,7 @@ public class ReceitaController {
 	}
 	
 	@PostMapping(value= Constants.SAVE_RECEITA)
-	public void saveUser(@RequestBody ReceitaDto receitaDto) {
+	public void saveReceita(@RequestBody ReceitaDto receitaDto) {
 		receitaService.saveReceita(receitaDto);
 	}
 	
