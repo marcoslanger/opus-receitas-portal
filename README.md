@@ -1,29 +1,22 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Repositório com a aplicação de teste para a Opus.
 
-### What is this repository for? ###
+Contexto da aplicação: opusreceitas
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Ex: http://localhost:8080/opusreceitas/
 
-### How do I get set up? ###
+Só mais a frente vi que pelos requisitos, precisará de um relacionamente entre receitas e ingredientes. Nessa versão a tabela de ingredientes serveapenas para seleçaõ dos mesmos que são marcados em um select multiplo e jogados para um campo string da receita. Mas as principais funcionalidades ja estão disponiveis.
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Utilizado H2 em memória.
 
-### Contribution guidelines ###
+http://localhost:8080/opusreceitas/h2-console
 
-* Writing tests
-* Code review
-* Other guidelines
+Swagger foi configurado:
 
-### Who do I talk to? ###
+http://localhost:8080/opusreceitas/swagger-ui.html
 
-* Repo owner or admin
-* Other community or team contact
+
+
+
+
