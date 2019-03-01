@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+    
+    <style>
+    	input[type=number]::-webkit-inner-spin-button, 
+		input[type=number]::-webkit-outer-spin-button { 
+		  -webkit-appearance: none; 
+		  margin: 0; 
+		}
+    </style>
+</head>
+<body ng-app="opusreceitas">
+
+<div class="container" ng-controller="ReceitaController">
+	
+    <div class="row" style="padding-bottom:10px">
+    	 <label>Nova Receita</label>
+   	</div>
+   	<form ng-submit="criarReceita()">   		
+	    <input id="ingredienteHidden" ng-required="true" type="hidden" ng-model="receitaDto.ingredientes" class="input-sm spacing"/>	        
+	    
+	   	<div class="row" style="padding-bottom:10px;padding-top:10px">
+	       <div><label>Nome</label></div><div><input ng-required="true" type="text" maxlength="40" ng-model="receitaDto.nome" class="input-sm spacing"/></div>	        
+	    </div>
+	    <div class="row" style="padding-bottom:10px;padding-top:10px">	        
+	        <div><label>Calorias</label></div><div><input ng-required="true" type="text"  size="10" ng-model="receitaDto.calorias" class="input-sm spacing"/></div>
+	    </div>
+	   	<div class="row" style="padding-bottom:10px">   
+	        <div><label>Preparo</label></div><div><textarea rows="4" cols="50" ng-required="true" ng-model="receitaDto.preparo" class="input-sm spacing"></textarea></div>
+	    </div>
+	    <div class="row" style="padding-bottom:10px;padding-top:10px">
+	       <div> <label>Ingredientes</label></div> 
+	       <div> <select id="selectReceita" multiple  ng-click="guardarIngrediente()">
+			  <option value="{{ingrediente.nome}}" ng-repeat="ingrediente in ingredientesDto" >{{ingrediente.nome}}</option>
+			</select>
+			</div>
+		</div>
+		
+		
+		<div class="row" style="padding-bottom:10px">
+	       	<button type="submit" class="btn btn-sm btn-info">Criar Receita</button>
+	   
+	        <a href="javascript:;" ng-click="listarReceitas()" class="btn btn-sm btn-info">Listar Receitas</a>
+	    </div>	
+	 </form>  
+	    
+	    <div class="row" ng-if="receitaDto.length > 0">
+	        <label><h3>Lista de Receitas</h3></label> 
+	    </div>
+	    
+	    <div class="row" ng-repeat="receita in receitaDto" ng-if="receitaDto.length > 0">	        
+	           <a ng-click="obterReceita(receita.id)"><h5><b>{{receita.nome}}</b></h5></a>
+	           Calorias:&nbsp;<span class="spacing">{{receita.calorias}}</span>	       
+	    </div> 
+	    
+	    <div id="detalhes" ng-if="receitaDto.length == undefined">
+	    	 <div class="row">
+		        <label><h3>Detalhes da Receitas</h3></label> 
+		    </div>
+			 <div class="row">	        
+		           Nome:&nbsp;<span class="spacing">{{receitaDto.nome}}</span>
+		           Calorias:&nbsp;<span class="spacing">{{receitaDto.calorias}}</span>
+		           Preparo:&nbsp;<span class="spacing">{{receitaDto.preparo}}</span>
+		           Ingredientes:&nbsp;<span  class="spacing">{{receitaDto.ingredientes}}</span>	       
+		    </div> 
+		</div> 
+	
+	    <hr/>
+	</div>
+	
+	
+	
+	
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/jquery-3.2.1.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/ReceitaController.js"></script>
+<script src="js/app/ReceitaService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/app/app.css"/>
+</html>
