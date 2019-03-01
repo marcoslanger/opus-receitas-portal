@@ -40,4 +40,5 @@ public class ReceitaController {
 	public List<IngredientesDto> getAllIngredientes() {
 		return receitaService.getAllIngredientes();
 	}
+	
 }
