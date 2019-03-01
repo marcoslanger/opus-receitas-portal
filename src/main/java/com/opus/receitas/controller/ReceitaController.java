@@ -19,8 +19,7 @@ import com.opus.receitas.utils.Constants;
 @RestController
 public class ReceitaController {
 	@Autowired
-	ReceitaService receitaService;
-	
+	ReceitaService receitaService;	
 
 	@GetMapping(Constants.GET_RECEITA_BY_ID)
 	public ReceitaDto getReceitaById(@PathVariable Integer id) {
